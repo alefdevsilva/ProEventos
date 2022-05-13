@@ -4,14 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
+using ProEventos.Persistence.Contratos;
 
 namespace ProEventos.Persistence
 {
-    public class ProEventosPersistence : IProEventosPersistence
+    public class EventosPersist : IEventosPersist, IGeralPersist
     {
         private readonly ProEventosContext _context;
 
-        public ProEventosPersistence(ProEventosContext context)
+        public EventosPersist(ProEventosContext context)
         {
             _context = context;
             
@@ -102,25 +103,7 @@ namespace ProEventos.Persistence
         }
 
 
-
-
-
-
-
-        public Task<Evento[]> GetAllPalestrantesAsync(bool includeEventos)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Evento[]> GetAllPalestrantesByNomeAsync(string Nome, bool includeEventos = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Evento> GetPalestranteByIdAsync(int PalestranteId, bool includeEventos = false)
-        {
-            throw new NotImplementedException();
-        }
+        
 
 
     }
